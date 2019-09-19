@@ -26,7 +26,7 @@ class LoginView: UIView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .white
+        label.backgroundColor = .purple
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,6 +43,27 @@ class LoginView: UIView {
         view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    let inputContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let forgotPasswordButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .red
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let loginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .red
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -97,5 +118,26 @@ class LoginView: UIView {
         addConstraint(NSLayoutConstraint(item: bottomView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: bottomView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: bottomView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0.35, constant: 0))
+        
+        bottomView.addSubview(inputContainerView)
+        
+        addConstraint(NSLayoutConstraint(item: inputContainerView, attribute: .top, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: 30))
+        addConstraint(NSLayoutConstraint(item: inputContainerView, attribute: .trailing, relatedBy: .equal, toItem: bottomView, attribute: .trailing, multiplier: 1, constant: -16))
+        addConstraint(NSLayoutConstraint(item: inputContainerView, attribute: .leading, relatedBy: .equal, toItem: bottomView, attribute: .leading, multiplier: 1, constant: 16))
+        addConstraint(NSLayoutConstraint(item: inputContainerView, attribute: .height, relatedBy: .equal, toItem: bottomView.self, attribute: .height, multiplier: 0.55, constant: 0))
+        
+        bottomView.addSubview(forgotPasswordButton)
+        
+        addConstraint(NSLayoutConstraint(item: forgotPasswordButton, attribute: .top, relatedBy: .equal, toItem: inputContainerView, attribute: .bottom, multiplier: 1, constant: 13))
+        addConstraint(NSLayoutConstraint(item: forgotPasswordButton, attribute: .leading, relatedBy: .equal, toItem: inputContainerView, attribute: .leading, multiplier: 1, constant: 12))
+        addConstraint(NSLayoutConstraint(item: forgotPasswordButton, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        addConstraint(NSLayoutConstraint(item: forgotPasswordButton, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0, constant: 130))
+        
+        bottomView.addSubview(loginButton)
+        
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .top, relatedBy: .equal, toItem: inputContainerView, attribute: .bottom, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .trailing, relatedBy: .equal, toItem: inputContainerView, attribute: .trailing, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 44))
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0, constant: 120))
     }
 }
