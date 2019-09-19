@@ -12,6 +12,7 @@ class LoginView: UIView {
     
     let heroView: UIView = {
         let view = UIView()
+        view.alpha = 0.5
         view.frame.origin.y -= 450
         view.backgroundColor = .heroMain
         view.layer.cornerRadius = 36
@@ -168,6 +169,7 @@ class LoginView: UIView {
     
     fileprivate func setupAnimations() {
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.4, options: [.curveEaseInOut], animations: {
+            self.heroView.alpha = 1
             self.heroView.frame.origin.y += 400
         })
         
